@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-My name is 陈宇鸣 (chén yǔ míng, ch'en yu ming), previously a MSc. student in the University of Birmingham, currently looking for a Ph.D. position. 
+My name is 陈宇鸣 (chén yǔ míng), previously a MSc. student in the University of Birmingham, currently looking for a Ph.D. position. 
 
 Research Interests:
 + Reinforcement Learning in Robotics, Multi-Agent Systems, Human-AI Collaboration
