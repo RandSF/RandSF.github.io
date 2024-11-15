@@ -193,11 +193,11 @@ collections:
   news:
     defaults:
       layout: post
-    output: true
-    permalink: /:collection/:title/
+    output: false
+    permalink: #/:collection/:title/
   projects:
-    output: true
-    permalink: /:collection/:title/
+    output: false
+    permalink: #/:collection/:title/
 
 announcements:
   enabled: true
