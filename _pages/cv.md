@@ -9,4 +9,3 @@ description: This is a short description of my CV. For details please see the pd
 toc:
   sidebar: left
 ---
-
