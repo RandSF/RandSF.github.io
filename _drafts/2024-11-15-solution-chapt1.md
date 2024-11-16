@@ -1,29 +1,76 @@
 ---
 layout: post
-title: a post with math
+title: Do Carmo Note Chpt1
 date: 2015-10-20 11:12:00-0400
 description: an example of a blog post with some math
-tags: formatting math
+tags: math
 categories: sample-posts
 related_posts: false
 ---
 
-This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`. If you leave it inside a paragraph, it will produce an inline expression, just like $$ E = mc^2 $$.
+some concepts:
 
-To use display mode, again surround your expression with `$$` and place it as a separate paragraph. Here is an example:
+ $\R^3$, it is just a space. For two points $p, q\in\R^3$, we can build a vector $q-p$ that has origin at $p$. A set of such vectors is the ***tangent space of $\R^3$ at $p$***, denoted as $\R^3_p$. And $\R^3_0$ is the "3D vector space" we always talk about. Lets take it as an example.
 
+***Vector Field*** $v$: Informally, $v$ is a **map** that assigns a vector in $\R^n_p$ to each point $p\in\R^n$. Notice that the vector $v(p)$ lies in different tangent spaces. For example, an **Electric Field** has different vectors at different points. We can write $v$ as 
 $$
-\sum_{k=1}^\infty |\langle x, e_k \rangle|^2 \leq \|x\|^2
+v(p)=\sum_{i=1}^na_i(p)e_i
 $$
+![an electric field from wiki](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/VFPt_image_charge_plane_horizontal.svg/250px-VFPt_image_charge_plane_horizontal.svg.png)
 
-You can also use `\begin{equation}...\end{equation}` instead of `$$` for display mode math.
-MathJax will automatically number equations:
+where $e_i$ are the canonical basis of $\R^n_0$.
 
-\begin{equation}
-\label{eq:cauchy-schwarz}
-\left( \sum*{k=1}^n a_k b_k \right)^2 \leq \left( \sum*{k=1}^n a*k^2 \right) \left( \sum*{k=1}^n b_k^2 \right)
-\end{equation}
+***Dual Space*** $\left(R^n_p\right)^* $: the basis of it is $(dx_i)_p$, where $x_i:\R^n\mapsto\R$ takes the $i$-th coordinate of the point. That is $x_i(p)=p_i$.Then $(dx_i)_p$ takes the coordinate of the points in $\R^n_p$, it is the translation of $x_i$, similar to $e_i$ and $(e_i)_p$. Easily we can see set $\{(dx_i)_p\}$ is the dual basis of $\{(e_i)_p\}$. 
 
-and by adding `\label{...}` inside the equation environment, we can now refer to the equation using `\eqref`.
+***an Exterior Form of degree 1*** ( a ***field of linear form***) $\omega$: Informally, it assigns elements in $(\R^n)_p$ for each $p\in\R^n$. Or it simple replace $e_i$ in $v(p)$ with $(dx_i)p$. 
 
-Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
+***an Exterior Form of degree 2*** : Informally, it is the bilinear dual of $\R^n_p\times\R^n_p$. And it is **alternate**. The set of it is $\Lambda^2(\R^n_p)^*$. For $\varphi_1, \varphi_2\in(\R^n_p)^*$, we have
+$$
+(\varphi_1\wedge\varphi_2)(v_1, v_2):=\det\left(\left[\begin{matrix}
+\varphi_1(v_1)&\varphi_1(v_2)\\
+\varphi_2(v_1)&\varphi_2(v_2)\\
+\end{matrix}\right]\right)=\det(\varphi_i(v_j))
+$$
+and $\varphi_1\wedge\varphi_2\in\Lambda^2(\R^n_p)^*$. Expand the above equation, we can guess that$(dx_i\wedge dx_j)_p, i<j$ is a basis for $\Lambda^2(\R^n_p)^*$.
+
+Generally, we have ***Proposition 1***: 
+$$
+\{
+(dx_{i_1}\wedge\dots\wedge dx_{i_k})_p, \ 
+i_1<i_2<\dots<i_k, \ 
+i_j\in\{1,\dots,n\}
+\}
+$$
+is the basis of $\Lambda^k(\R^n_k)^*$. 
+
+Hint to proof: proof **linear independence** by 1. applying the function $(dx_{i_1}\wedge\dots\wedge dx_{i_k})_p$ to $(e_{j_1},\dots,e_{j_k})$ (with different permutation of $i$). 2. for all $f\in\Lambda^k(\R^n_p)^*$, $f$ is a linear combination of the set.
+
+For any exterior form $\omega$, we can write:
+$$
+\omega=\sum a_Idx_I
+$$
+where $I$ is the $k$-upla $(i_1,\dots,i_k),\ i_1<\dots<i_k$
+
+***Exterior product*** $\wedge$: it can be used to combined  two forms, if $\omega$ is a $k$-form and $\varphi$ is a $s$-form, then $\omega\wedge\varphi$ is a ($k+s$)-form.
+
+***Proposition 2*** (properties of $\wedge$): 
+
+- Associative law: $(\omega\wedge\varphi)\wedge\theta=\omega\wedge(\varphi\wedge\theta)$
+- Commutative law: $(\omega\wedge\varphi)=(-1)^{ks}(\varphi\wedge\omega)$ (imaging reversing the columns of a matrix)
+- Distributive law: $\omega\wedge(\varphi+\theta)=\omega\wedge\varphi+\omega\wedge\theta$ 
+
+***convention between two spaces***:
+
+- $f:\R^n\mapsto\R^m$, $f^*:\Lambda^k(\R^m_p)^*\mapsto\Lambda^k(\R^n_p)^*$ 
+
+- $\omega, \varphi\in\Lambda^k(\R^m_p)^*$, we have 
+  $$
+  (f^*\omega)(p)(v_1,\dots,v_k)=\omega(f(p))(df_p(v_1), \dots,df_p(v_k))
+  $$
+  where $df_p:\R^n_p\mapsto\R^m_{f(p)}$.
+
+- $g: \R^m\mapsto\R$ ($0$-form)
+
+Then we have ***Proposition 3***: 
+
+1. f
